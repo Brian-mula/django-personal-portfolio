@@ -8,3 +8,8 @@ from home.models import Profile
 class HomeView(ListView):
     model=Profile
     template_name='index.html'
+
+
+class BlogView(ListView):
+    model=Profile
+    template_name='blogs.html'
