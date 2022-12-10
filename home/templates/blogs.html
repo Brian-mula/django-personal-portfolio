@@ -1,11 +1,83 @@
-{% extends 'main.html'%}
-
-{% block content%}
+{% extends 'main.html'%} {% block content%}
 <h4>Blogs page</h4>
 <div class="container">
-    <div class="d-flex justify-content-sm-end justify-content-md-end">
-        <button type="button" class="btn btn-success mt-3">Success</button>
+  <div class="d-flex justify-content-sm-end justify-content-md-end">
+    <button
+      type="button"
+      class="btn btn-success mt-3"
+      data-bs-toggle="modal"
+      data-bs-target="#exampleModal"
+    >
+      Success
+    </button>
+  </div>
+  <div>List of blogs</div>
 
+  <!-- Modal -->
+  <div
+    class="modal fade"
+    id="exampleModal"
+    tabindex="-1"
+    aria-labelledby="exampleModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            {% csrf_token%}
+            <div class="form-group">
+              <label for="formGroupExampleInput">Blog Title:</label>
+              <input
+                type="text"
+                class="form-control"
+                id=""
+                placeholder="Title"
+                name="blog_title"
+              />
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput">Blog Author:</label>
+              <input
+                type="text"
+                class="form-control"
+                id=""
+                placeholder="Title"
+                name="blog_author"
+              />
+            </div>
+            <div class="form-group">
+              <label for="formGroupExampleInput">Blog Body:</label>
+              <textarea
+              name="blog_body"
+                class="form-control rounded-0"
+                id="exampleFormControlTextarea2"
+                rows="3"
+              ></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Close
+          </button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
     </div>
+  </div>
 </div>
 {% endblock%}
