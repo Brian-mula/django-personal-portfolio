@@ -1,5 +1,23 @@
-{% extends 'main.html'%}
 
+
+{% extends 'main.html'%}
+{% load static%}
 {% block content%}
     <h4 class="h1">This is the Home page</h4>
+    <div class="container">
+        <div class=" d-flex flex-sm-column flex-md-row justify-content-sm-center justify-content-md-between">
+            <div class="mt-5 w-50">
+                <p class="h4 text-muted mt-5">We manage you grow</p>
+                <p class="h2 fw-bold mt-2">A complete Solution <br>To All Your Tech Needs <br>Without Hustle</p>
+                <p class="mt-2 h5 ">Manage your busines without having to worry about the software solutions you are using. Less hustle more growth</p>
+
+                <div class="d-flex justify-content-center mt-3">
+                    <a href="{% url 'blogs' %}" class="btn btn-success">New Blog</a>
+                </div>
+            </div>
+            <div class="">
+                <img src="{%static 'images/code1.png'%}" alt="">
+            </div>
+        </div>
+    </div>
 {% endblock%}
