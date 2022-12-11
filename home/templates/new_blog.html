@@ -5,6 +5,7 @@
 <div class="mx-auto w-25">
     <h4 class="text-success">Fill the form below</h4>
     <form action="" method="POST">
+        {% csrf_token%}
         <div class="form-group">
             <label for="formGroupExampleInput">Blog Title:</label>
             <input
@@ -33,6 +34,9 @@
               id="exampleFormControlTextarea2"
               rows="3"
             ></textarea>
+          </div>
+          <div class="d-flex justify-content-md-center items-center mt-3">
+            <button type="submit" class="btn btn-success">Save</button>
           </div>
     </form>
 </div>

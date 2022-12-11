@@ -22,7 +22,7 @@ class BlogView(ListView):
 class CreateBlogView(CreateView):
     model=Profile
     template_name='new_blog.html'
-    fields=['title','author','body']
+    form_class=BlogForm
     
     
     
