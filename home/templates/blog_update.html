@@ -12,7 +12,7 @@
               type="text"
               class="form-control"
               id=""
-              placeholder="Title"
+              placeholder="{{object.title}}"
               name="title"
             />
           </div>
@@ -22,7 +22,7 @@
               type="text"
               class="form-control"
               id=""
-              placeholder="Title"
+              placeholder="{{object.author}}"
               name="author"
             />
           </div>
@@ -33,10 +33,11 @@
               class="form-control rounded-0"
               id="exampleFormControlTextarea2"
               rows="3"
+              placeholder="{{object.body}}"
             ></textarea>
           </div>
           <div class="d-flex justify-content-md-center items-center mt-3">
-            <button type="submit" class="btn btn-success">Save</button>
+            <button type="submit" class="btn btn-success">Update</button>
           </div>
     </form>
 </div>
