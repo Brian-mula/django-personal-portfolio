@@ -18,6 +18,11 @@ class HomeView(ListView):
 class BlogView(ListView):
     model=Profile
     template_name='blogs.html'
+
+    def get_queryset(self,*args,**kwargs):
+        qs=super().get_queryset(*args,**kwargs)
+        qs=qs.order_by("-id")
+        return qs
     
 
 class CreateBlogView(CreateView):
