@@ -32,6 +32,7 @@ class CreateBlogView(CreateView):
     
 class BlogDetailsView(DetailView):
     queryset=Profile.objects.all()
+    template_name='blog_details.html'
 
     
    
