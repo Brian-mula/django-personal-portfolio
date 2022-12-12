@@ -2,11 +2,11 @@ from django.http import HttpResponseRedirect, request
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, DetailView, ListView, UpdateView
 
 from home.models import Profile
 
-from .forms import BlogForm
+from .forms import BlogForm, UpdateBlogForm
 
 
 # Create your views here.
@@ -27,7 +27,23 @@ class CreateBlogView(CreateView):
 
     def get_success_url(self):
         return reverse_lazy('blogs')
+
     
     
+class BlogDetailsView(DetailView):
+    queryset=Profile.objects.all()
+    template_name='blog_details.html'
+
+class BlogUpdateView(UpdateView):
+    model=Profile
+    form_class=UpdateBlogForm
+    template_name="blog_update.html"
+    
+    def get_success_url(self):
+        return reverse_lazy('blogs')
+
+    
+    
+
     
    
