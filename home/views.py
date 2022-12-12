@@ -2,7 +2,8 @@ from django.http import HttpResponseRedirect, request
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import CreateView, DetailView, ListView, UpdateView
+from django.views.generic import (CreateView, DeleteView, DetailView, ListView,
+                                  UpdateView)
 
 from home.models import Profile
 
@@ -49,6 +50,9 @@ class BlogUpdateView(UpdateView):
 
     
     
-
+class BlogDeleteView(DeleteView):
+    model=Profile
+    template_name="delete_blog.html"
+    success_url='/blogs'
     
    
