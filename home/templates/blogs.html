@@ -20,13 +20,16 @@
           <div class="card-body">
             <h5 class="card-title">{{blog.title}}</h5>
             <h6 class="card-subtitle mb-2 text-muted">By: {{blog.author}}</h6>
-            <p class="card-text">{{blog.body}}</p>
+            <p class="card-text">{{blog.trimbody}}</p>
             <div class="d-flex justify-content-between">
               <a href="{% url 'blogdetails' blog.pk %}" class="card-link"
                 >More</a
               >
               <a href="{% url 'blogupdate' blog.pk %}" class="card-link"
                 >Edit</a
+              >
+              <a href="{% url 'deleteblog' blog.pk %}" class="card-link"
+                >Del</a
               >
             </div>
           </div>
