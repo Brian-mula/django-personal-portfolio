@@ -53,6 +53,8 @@ class BlogUpdateView(UpdateView):
 class BlogDeleteView(DeleteView):
     model=Profile
     template_name="delete_blog.html"
-    success_url='/blogs'
+    
+    def get_success_url(self):
+        return reverse_lazy('blogs')
     
    

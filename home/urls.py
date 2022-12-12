@@ -10,6 +10,6 @@ urlpatterns = [
     path('new_blog',CreateBlogView.as_view(),name='newblog'),
     path('blogs/<int:pk>',BlogDetailsView.as_view(),name='blogdetails'),
     path('blogs/update/<int:pk>',BlogUpdateView.as_view(),name="blogupdate"),
-    path("/blogs/delete/<int:pk>",BlogDeleteView.as_view(),name="deleteblog")
+    path("blogs/delete/<int:pk>",BlogDeleteView.as_view(),name="deleteblog")
     
 ]
