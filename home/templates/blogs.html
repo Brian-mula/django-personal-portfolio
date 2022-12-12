@@ -12,12 +12,24 @@
     </button> -->
   <a href="{%url 'newblog'%}"class="btn btn-success mt-3">New Blog</a>
   </div>
-  <div>
-    <ul>
-      {% for blog in object_list%}
-      <li>{{blog.title}}</li>
-      {% endfor %}
-    </ul>
+  <div class="container-fluid">
+    <div class="row ">
+    {% for blog in object_list %}
+   <div class="col-sm-12 col-md-3 mx-2 mb-4">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title">{{blog.title}}</h5>
+        <h6 class="card-subtitle mb-2 text-muted">By: {{blog.author}}</h6>
+        <p class="card-text">{{blog.body}}</p>
+        <div class="d-flex justify-center">
+          <a href="#" class="card-link">More</a>
+        </div>
+        
+      </div>
+    </div>
+   </div>
+    {% endfor %}
+    </div>
   </div>
 
   <!-- Modal -->

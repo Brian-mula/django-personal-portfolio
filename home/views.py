@@ -2,7 +2,7 @@ from django.http import HttpResponseRedirect, request
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, DetailView, ListView
 
 from home.models import Profile
 
@@ -27,7 +27,11 @@ class CreateBlogView(CreateView):
 
     def get_success_url(self):
         return reverse_lazy('blogs')
+
     
     
+class BlogDetailsView(DetailView):
+    queryset=Profile.objects.all()
+
     
    
