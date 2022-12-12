@@ -2,7 +2,7 @@ from django.http import HttpResponseRedirect, request
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import CreateView, DetailView, ListView
+from django.views.generic import CreateView, DetailView, ListView, UpdateView
 
 from home.models import Profile
 
@@ -33,6 +33,11 @@ class CreateBlogView(CreateView):
 class BlogDetailsView(DetailView):
     queryset=Profile.objects.all()
     template_name='blog_details.html'
+
+class BlogUpdateView(UpdateView):
+    model=Profile
+    form_class=BlogForm
+    template_name="blog_update.html"
 
     
    

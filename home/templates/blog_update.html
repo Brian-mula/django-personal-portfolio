@@ -1,0 +1,43 @@
+{% extends 'main.html' %}
+
+{% block content%}
+<h4>This is the Update block page</h4>
+<div class="mx-auto w-25">
+    <h4 class="text-success">Update the form below</h4>
+    <form action="" method="POST">
+        {% csrf_token%}
+        <div class="form-group">
+            <label for="formGroupExampleInput">Blog Title:</label>
+            <input
+              type="text"
+              class="form-control"
+              id=""
+              placeholder="Title"
+              name="title"
+            />
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput">Blog Author:</label>
+            <input
+              type="text"
+              class="form-control"
+              id=""
+              placeholder="Title"
+              name="author"
+            />
+          </div>
+          <div class="form-group">
+            <label for="formGroupExampleInput">Blog Body:</label>
+            <textarea
+            name="body"
+              class="form-control rounded-0"
+              id="exampleFormControlTextarea2"
+              rows="3"
+            ></textarea>
+          </div>
+          <div class="d-flex justify-content-md-center items-center mt-3">
+            <button type="submit" class="btn btn-success">Save</button>
+          </div>
+    </form>
+</div>
+{% endblock%}
