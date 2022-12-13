@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.http import HttpResponseRedirect, request
 from django.shortcuts import render
 from django.urls import reverse_lazy
@@ -16,9 +17,11 @@ class HomeView(ListView):
     template_name='index.html'
 
 
-class BlogView(ListView):
+class BlogView(LoginRequiredMixin, ListView):
     model=Profile
     template_name='blogs.html'
+    login_url="accounts/login"
+    redirect_field_name='login'
 
     def get_queryset(self,*args,**kwargs):
         qs=super().get_queryset(*args,**kwargs)
