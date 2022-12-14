@@ -3,6 +3,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import redirect, render
 
+from .forms import CustomeUserCreationForm
+
 
 # Create your views here.
 def login_user(request):
@@ -25,9 +27,9 @@ def logout_user(request):
 
 
 def register_user(request):
-    form=UserCreationForm(request.POST or None)
+    
     if request.method=="POST":
-        
+        form=CustomeUserCreationForm(request.POST or None)
         if form.is_valid():
             form.save()
             username=form.cleaned_data['username']
@@ -36,7 +38,7 @@ def register_user(request):
             login(request,user)
             return redirect('blogs')
         else:
-            form=UserCreationForm()
-            return 
+            form=CustomeUserCreationForm()
+            return render(request,'authentication/register.html') 
     else:
-        return render(request,'authentication/register.html',{'form':form})
+        return render(request,'authentication/register.html')
