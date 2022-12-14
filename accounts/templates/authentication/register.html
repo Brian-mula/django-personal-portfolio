@@ -5,7 +5,9 @@
     <div class="card" style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title"> Provide Your details</h5>
-
+          {% if form.errors%}
+            <p>There were errors in your form</p>
+          {% endif %}
           <form method="POST">
             {% csrf_token %}
             <div class="mb-3">
