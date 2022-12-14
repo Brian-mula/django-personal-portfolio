@@ -31,10 +31,7 @@ def register_user(request):
     if request.method=="POST":
         form=CustomeUserCreationForm(request.POST or None)
         if form.is_valid():
-            form.save()
-            username=form.cleaned_data['username']
-            pasword=form.cleaned_data['password']
-            user=authenticate(request,username=username,pasword=pasword)
+            user=form.save()
             login(request,user)
             return redirect('blogs')
         else:
