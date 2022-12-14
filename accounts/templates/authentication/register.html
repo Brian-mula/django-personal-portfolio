@@ -4,8 +4,10 @@
 <div class="w-25 mx-auto mt-5">
     <div class="card" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title"> Provide login details</h5>
-
+          <h5 class="card-title"> Provide Your details</h5>
+          {% if form.errors%}
+            <p>There were errors in your form</p>
+          {% endif %}
           <form method="POST">
             {% csrf_token %}
             <div class="mb-3">
@@ -14,8 +16,17 @@
               
             </div>
             <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address:</label>
+              <input type="email" class="form-control" name="email" >
+              
+            </div>
+            <div class="mb-3">
               <label for="exampleInputPassword1" class="form-label">Password:</label>
-              <input type="password" class="form-control" name="password">
+              <input type="password" class="form-control" name="password1">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label">Confirm pass:</label>
+              <input type="password" class="form-control" name="password2">
             </div>
             <div class="mb-3 form-check">
               <input type="checkbox" class="form-check-input" id="exampleCheck1">
@@ -23,7 +34,6 @@
             </div>
             <button type="submit" class="btn btn-success">Submit</button>
           </form>
-          <a href="{% url 'register'%}" class="btn btn-success">Already have an account?</a>
         </div>
       </div>
 </div>
